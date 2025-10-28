@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracksolid API Debugger</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>🔧 Tracksolid API Debugger</h1>
+        <p>Ferramenta para Debug da API Tracksolid - Obtenção de Token e Listagem de Dispositivos</p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Seção de Configurações de Acesso -->
+      <section class="section">
+        <h2>📋 Configurações de Acesso</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="baseUrl">Base URL</label>
+            <input type="text" id="baseUrl" placeholder="https://us-open.tracksolidpro.com/route/rest" value="https://us-open.tracksolidpro.com/route/rest">
+          </div>
+
+          <div class="form-group">
+            <label for="appKey">App Key (Identificador público - valor longo)</label>
+            <input type="text" id="appKey" placeholder="Ex: 8FB345B8693CCD005D14496E43B348BB..." value="">
+            <small style="color: #888; font-size: 0.85em;">✓ Enviado na requisição | Geralmente 40+ caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <label for="appSecret">App Secret (Chave privada - valor curto)</label>
+            <input type="password" id="appSecret" placeholder="Ex: d946bd3da7d04f78b1c2e358a7410707" value="">
+            <button class="toggle-password" onclick="togglePasswordVisibility()">👁️</button>
+            <small style="color: #888; font-size: 0.85em;">✓ Usado apenas para gerar sign | Geralmente 32 caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <label for="userId">User ID (Login)</label>
+            <input type="text" id="userId" placeholder="Ex: pbraga@redgps.com" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password (MD5)</label>
+            <input type="password" id="password" placeholder="Ex: 21218cca77804d2ba1922c33e0151105" value="">
+            <button class="toggle-password" onclick="togglePasswordVisibility2()">👁️</button>
+            <small style="color: #888; font-size: 0.85em;">⚠️ Insira o hash MD5 da senha (32 caracteres)</small>
+          </div>
+
+          <div class="form-group">
+            <label for="expiresIn">Expires In (segundos)</label>
+            <input type="number" id="expiresIn" placeholder="7200" value="7200">
+          </div>
+
+          <div class="form-group">
+            <label for="targetAccount">Target Account (Device List)</label>
+            <input type="text" id="targetAccount" placeholder="Ex: pbraga@redgps.com" value="">
+            <small style="color: #888; font-size: 0.85em;">ℹ️ Geralmente igual ao User ID</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botão de Execução -->
+      <section class="section button-section">
+        <button class="execute-button" id="executeButton" onclick="executeDebug()">
+          ▶️ EXECUTAR DEBUG
+        </button>
+        <button class="clear-button" onclick="clearLogs()">
+          🗑️ LIMPAR LOGS
+        </button>
+      </section>
+
+      <!-- Spinner de Loading -->
+      <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>Processando...</p>
+      </div>
+
+      <!-- Área de Log e Resultados -->
+      <section class="section">
+        <h2>📊 Log e Resultados</h2>
+        <div class="log-container" id="logContainer">
+          <div class="log-empty">
+            <p>Os logs aparecerão aqui após executar o debug...</p>
+          </div>
+        </div>
+        <div class="log-actions">
+          <button onclick="copyLogs()">📋 Copiar Logs</button>
+          <button onclick="downloadLogs()">⬇️ Baixar Logs</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Tracksolid API Debugger v1.0 | Desenvolvido para diagnóstico da API</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
