@@ -1,3 +1,11 @@
+// Verificar autenticação ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+  const isAuthenticated = sessionStorage.getItem('authenticated');
+  if (isAuthenticated !== 'true') {
+    window.location.href = 'login.html';
+  }
+});
+
 // Variáveis globais
 let currentLogs = [];
 
@@ -163,8 +171,13 @@ function downloadLogs() {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
 
-  alert('✓ Logs baixados com sucesso!');
+
+// Função para fazer logout
+function logout() {
+  sessionStorage.removeItem('authenticated');
+  window.location.href = 'login.html';
 }
 
 // Inicializar quando a página carrega

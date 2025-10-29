@@ -8,6 +8,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Redirecionar root para login
+app.get('/', (req, res) => {
+  res.redirect('/login.html');
+});
+
 // Servir arquivos estáticos
 app.use(express.static('public'));
 
