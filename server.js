@@ -306,7 +306,7 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✓ Servidor iniciado em http://localhost:${PORT}`);
   console.log(`✓ Abra seu navegador e acesse: http://localhost:${PORT}`);

@@ -36,8 +36,8 @@ echo -e "${YELLOW}[3] Verificando portas...${NC}"
 echo "Porta 80 (HTTP):"
 sudo netstat -tlnp | grep :80 || echo -e "${RED}Porta 80 não está aberta${NC}"
 echo ""
-echo "Porta 3000 (Aplicação):"
-sudo netstat -tlnp | grep :3000 || echo -e "${RED}Porta 3000 não está aberta${NC}"
+echo "Porta 5000 (Aplicação):"
+sudo netstat -tlnp | grep :5000 || echo -e "${RED}Porta 5000 não está aberta${NC}"
 echo ""
 
 # 4. Verificar Docker container
@@ -51,8 +51,8 @@ fi
 echo ""
 
 # 5. Testar aplicação localmente
-echo -e "${YELLOW}[5] Testando aplicação na porta 3000...${NC}"
-response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 2>&1)
+echo -e "${YELLOW}[5] Testando aplicação na porta 5000...${NC}"
+response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000 2>&1)
 if [ "$response" = "200" ] || [ "$response" = "302" ]; then
     echo -e "${GREEN}✓ Aplicação respondeu: $response${NC}"
 else

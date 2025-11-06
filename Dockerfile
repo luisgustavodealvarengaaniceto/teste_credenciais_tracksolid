@@ -13,8 +13,8 @@ RUN npm install --production
 # Copiar todo o código da aplicação
 COPY . .
 
-# Expor porta 3000 (porta interna do container)
-EXPOSE 3000
+# Expor porta 5000 (porta interna do container)
+EXPOSE 5000
 
 # Comando para iniciar a aplicação
 CMD ["npm", "start"]

@@ -14,7 +14,7 @@ NC='\033[0m'
 
 SUBDOMAIN="testeapi.jimibrasil.com.br"
 VM_IP="137.131.170.156"
-APP_PORT="3000"
+APP_PORT="5000"
 
 echo "=========================================="
 echo "CONFIGURAR NGINX - TRACKSOLID DEBUGGER"
@@ -82,7 +82,7 @@ server {
 
     # Proxy para o container Docker
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:5000;
         proxy_http_version 1.1;
         
         # Headers
